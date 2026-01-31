@@ -40,93 +40,139 @@ local M = {
         vim.cmd("highlight clear")
         local P = { bg = colors.panel }
 
-        -- ── Core ───────────────────────────────────
-        set("Normal",   vim.tbl_extend("force", { fg = colors.fg }, P))
-        set("NormalNC", vim.tbl_extend("force", { fg = colors.fg }, P))
-        set("SignColumn", vim.tbl_extend("force", { fg = colors.subtle }, P))
-        set("LineNr",     vim.tbl_extend("force", { fg = colors.subtle }, P))
-        set("CursorLine", { bg = colors.abyss_red })
+        -- Core/editor
+        set("Normal",       vim.tbl_extend("force", { fg = colors.fg }, P))
+        set("NormalNC",     vim.tbl_extend("force", { fg = colors.fg }, P))
+        set("SignColumn",   vim.tbl_extend("force", { fg = colors.subtle }, P))
+        set("FoldColumn",   vim.tbl_extend("force", { fg = colors.subtle }, P))
+        set("LineNr",       vim.tbl_extend("force", { fg = colors.subtle }, P))
+        set("CursorLine",   { bg = colors.abyss_red })
+        set("CursorColumn", { bg = colors.abyss_red })
 
         set("Cursor",   { fg = colors.panel, bg = colors.cursor })
         set("CursorIM", { fg = colors.panel, bg = colors.cursor })
 
-        -- ── Floats / Menus ─────────────────────────
-        set("NormalFloat", vim.tbl_extend("force", { fg = colors.fg }, P))
-        set("FloatBorder", { fg = colors.border, bg = colors.panel })
-        set("Pmenu",       { fg = colors.fg, bg = colors.abyss_red })
-        set("PmenuSel",    { fg = colors.panel, bg = colors.hot_red, bold = true })
+        -- Floats / menus
+        set("NormalFloat",  vim.tbl_extend("force", { fg = colors.fg }, P))
+        set("FloatBorder",  { fg = colors.border, bg = colors.panel })
+        set("Pmenu",        vim.tbl_extend("force", { fg = colors.fg }, { bg = colors.abyss_red }))
+        set("PmenuSel",     { fg = colors.panel, bg = colors.hot_red, bold = true })
+        set("PmenuSbar",    { bg = colors.subtle })
+        set("PmenuThumb",   { bg = colors.mid_red })
 
-        -- ── Status / Tabs ──────────────────────────
-        set("StatusLine",   { fg = colors.fg, bg = colors.abyss_red })
-        set("StatusLineNC", { fg = colors.subtle, bg = colors.panel })
-        set("TabLine",      { fg = colors.subtle, bg = colors.panel })
+        -- Statusline / tabs
+        set("StatusLine",   vim.tbl_extend("force", { fg = colors.fg }, { bg = colors.abyss_red }))
+        set("StatusLineNC", vim.tbl_extend("force", { fg = colors.subtle }, P))
+        set("TabLine",      vim.tbl_extend("force", { fg = colors.subtle }, P))
+        set("TabLineFill",  P)
         set("TabLineSel",   { fg = colors.panel, bg = colors.mid_red, bold = true })
 
-        -- ── Separators ─────────────────────────────
+        -- Window separators
         set("WinSeparator", { fg = colors.border, bg = colors.panel })
         set("VertSplit",    { fg = colors.border, bg = colors.panel })
 
-        -- ── Selection (SHADED) ─────────────────────
-        set("Visual",    { bg = colors.selection })
+        -- Selections / folds
+        set("Visual",    { bg = colors.selection, fg = colors.fg })
         set("VisualNOS", { bg = colors.selection })
+        set("Folded",    vim.tbl_extend("force", { fg = colors.subtle, italic = true }, P))
 
-        -- ── Syntax ─────────────────────────────────
+        -- Syntax
         set("Comment",    { fg = colors.subtle, italic = true })
+        
+        -- Dark red for specific elements only
+        set("Keyword",    { fg = "#F81F4B", bold = false })
+        set("Function",   { fg = "#F81F4B", bold = false })
+        set("Operator",   { fg = "#F81F4B" })
+        set("Delimiter",  { fg = "#F81F4B" })
+        
+        -- Everything else in subtle grays
+        set("Constant",   { fg = colors.fg })
+        set("String",     { fg = colors.fg })
+        set("Character",  { fg = colors.fg })
+        set("Number",     { fg = colors.fg })
+        set("Boolean",    { fg = colors.fg })
+        set("Float",      { fg = colors.fg })
+        set("Identifier", { fg = colors.fg })
+        set("Statement",  { fg = colors.fg })
+        set("Conditional",{ fg = colors.fg })
+        set("Repeat",     { fg = colors.fg })
+        set("Label",      { fg = colors.fg })
+        set("Exception",  { fg = colors.fg })
+        set("PreProc",    { fg = colors.fg })
+        set("Include",    { fg = colors.fg })
+        set("Macro",      { fg = colors.fg })
+        set("Type",       { fg = colors.fg })
+        set("StorageClass",{ fg = colors.fg })
+        set("Structure",  { fg = colors.fg })
+        set("Typedef",    { fg = colors.fg })
+        set("Special",    { fg = colors.fg })
+        set("SpecialChar",{ fg = colors.fg })
+        set("Tag",        { fg = colors.fg })
+        set("Debug",      { fg = colors.fg })
+        set("Title",      { fg = colors.fg, bold = true })
+        set("Directory",  { fg = colors.fg })
 
-        -- 🔴 Functions & Keywords
-        set("Function",   { fg = colors.glow_red, bold = true })
-        set("Keyword",    { fg = colors.hot_red, bold = true })
-        set("Statement",  { fg = colors.hot_red, bold = true })
-
-        -- 🩸 Variables → light red
-        set("Identifier", { fg = colors.light_red })
-        set("Variable",   { fg = colors.light_red })
-
-        set("String",   { fg = colors.blush_red })
-        set("Number",   { fg = colors.pale_red })
-        set("Boolean",  { fg = colors.hot_red, bold = true })
-        set("Operator", { fg = colors.light_red })
-        set("Type",     { fg = colors.pale_red, italic = true })
-        set("Constant", { fg = colors.mid_red })
-        set("Title",    { fg = colors.glow_red, bold = true })
-
-        -- ── Diagnostics ────────────────────────────
-        set("DiagnosticError", { fg = colors.hot_red })
-        set("DiagnosticWarn",  { fg = colors.mid_red })
-        set("DiagnosticInfo",  { fg = colors.pale_red })
-        set("DiagnosticHint",  { fg = colors.light_red })
-
+        -- Diagnostics
+        set("DiagnosticError", { fg = colors.hot_red,   bg = colors.panel })
+        set("DiagnosticWarn",  { fg = colors.mid_red,  bg = colors.panel })
+        set("DiagnosticInfo",  { fg = colors.pale_red,  bg = colors.panel })
+        set("DiagnosticHint",  { fg = colors.light_red, bg = colors.panel })
         set("DiagnosticUnderlineError", { undercurl = true, sp = colors.hot_red })
         set("DiagnosticUnderlineWarn",  { undercurl = true, sp = colors.mid_red })
+        set("DiagnosticUnderlineInfo",  { undercurl = true, sp = colors.pale_red })
+        set("DiagnosticUnderlineHint",  { undercurl = true, sp = colors.light_red })
 
-        -- ── Treesitter ─────────────────────────────
-        set("@function",         { link = "Function" })
-        set("@function.builtin", { fg = colors.hot_red, bold = true })
+        -- Treesitter links
+        set("@text",               { link = "Normal" })
+        set("@comment",            { link = "Comment" })
+        set("@constant",           { link = "Constant" })
+        set("@constant.builtin",   { link = "Constant" })
+        set("@string",             { link = "String" })
+        set("@character",          { link = "Character" })
+        set("@number",             { link = "Number" })
+        set("@boolean",            { link = "Boolean" })
+        set("@float",              { link = "Float" })
+        set("@function",           { link = "Function" })
+        set("@function.builtin",   { link = "Function" })
+        set("@method",             { link = "Function" })
+        set("@keyword",            { link = "Keyword" })
+        set("@keyword.function",   { link = "Keyword" })
+        set("@keyword.operator",   { link = "Operator" })
+        set("@type.builtin",       { link = "Type" })
+        set("@variable",           { link = "Identifier" })
+        set("@variable.builtin",   { link = "Identifier" })
+        set("@parameter",          { link = "Identifier" })
+        set("@tag.attribute",      { link = "Identifier" })
+        set("@constructor",        { link = "Identifier" })
+        set("@namespace",          { link = "Identifier" })
+        set("@text.uri",           { link = "Identifier" })
+        set("@text.todo",          { fg = colors.panel, bg = colors.subtle, bold = true })
 
-        set("@keyword",          { link = "Keyword" })
-        set("@keyword.function", { link = "Keyword" })
-
-        set("@variable",         { fg = colors.light_red })
-        set("@variable.builtin", { fg = colors.hot_red, italic = true })
-
-        set("@parameter",        { fg = colors.blush_red, italic = true })
-        set("@type.builtin",     { fg = colors.pale_red, bold = true })
-
-        -- ── Search ─────────────────────────────────
+        -- Search (Red Monarch style)
         set("Search",     { fg = colors.panel, bg = colors.mid_red })
         set("IncSearch",  { fg = colors.panel, bg = colors.hot_red, bold = true })
+        pcall(set, "CurSearch", { fg = colors.panel, bg = colors.hot_red, bold = true })
+        set("Substitute", { fg = colors.panel, bg = colors.deep_red, bold = true })
         set("MatchParen", { fg = colors.panel, bg = colors.blush_red, bold = true })
+        pcall(set, "HlSearchNear",     { fg = colors.panel, bg = colors.deep_red })
+        pcall(set, "HlSearchLens",     { fg = colors.panel, bg = colors.mid_red })
+        pcall(set, "HlSearchLensNear", { fg = colors.panel, bg = colors.mid_red })
 
-        -- ── Enforce panel consistency ──────────────
+        -- Enforce background consistency
         local function enforce_panel()
-          set("Normal",      { fg = colors.fg, bg = colors.panel })
-          set("NormalNC",    { fg = colors.fg, bg = colors.panel })
-          set("NormalFloat", { fg = colors.fg, bg = colors.panel })
-          set("StatusLine",  { fg = colors.fg, bg = colors.panel })
-          set("TabLine",     { fg = colors.subtle, bg = colors.panel })
+          set("Normal",       { fg = colors.fg, bg = colors.panel })
+          set("NormalNC",     { fg = colors.fg, bg = colors.panel })
+          set("NormalFloat",  { fg = colors.fg, bg = colors.panel })
+          set("StatusLine",   { fg = colors.fg, bg = colors.panel })
+          set("TabLine",      { fg = colors.subtle, bg = colors.panel })
+          set("AlphaNormal",  { fg = colors.fg, bg = colors.panel })
         end
 
         vim.api.nvim_create_autocmd({ "UIEnter", "VimEnter", "ColorScheme" }, {
+          callback = function() vim.schedule(enforce_panel) end,
+        })
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "AlphaReady",
           callback = function() vim.schedule(enforce_panel) end,
         })
       end,

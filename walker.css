@@ -1,128 +1,106 @@
 /* ── Red Monarch: Ultra-Smooth System Aesthetic ── */
 
 @define-color text          #F0E0E6; /* Moonlit White */
+@define-color base          #3E161B; /* Abyss Red */
+@define-color border        #5E1C24; /* Dark Red */
+@define-color foreground    #F0E0E6; /* Moonlit White */
 @define-color background    rgba(15, 5, 8, 0.9); /* Void */
-@define-color border        #1A0F11; /* Reddish-Black Shadow */
+@define-color hover         rgba(217, 38, 62, 0.15); /* Mid Red with opacity */
 @define-color accent        #D9263E; /* Hair Red */
 @define-color glow          #FF1F4C; /* Sword Glow Red */
 
-/* ── Window Container ───────────────────────────── */
 window .box-wrapper {
-  background: @background;
-  padding: 10px 6px;
+  background: @background; /* same as Waybar and terminal */
+  padding: 8px 2px;
   color: @text;
-  border-radius: 2px;
-  box-shadow: 0 0 25px rgba(15, 5, 8, 0.9);
-
-  /* Gentle fade-in for container presence */
-  animation: monarchFade 420ms cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid @border;
+  margin: 0;
 }
 
-@keyframes monarchFade {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+window .search-container,
+window .search {
+  background: transparent;
+  color: @foreground;
+  border: 1px solid alpha(@border, 0.5);
+  padding: 8px 12px;
+  margin: 4px 5px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-/* ── Base Item Motion ───────────────────────────── */
+window .input {
+  color: @accent;
+  padding: 0;
+  font-weight: 300;
+}
+
 child {
-  padding: 6px 10px;
-
-  /* Unified motion curve (feels “weighted”) */
-  transition:
-    background 300ms cubic-bezier(0.23, 1, 0.32, 1),
-    transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
-    box-shadow 300ms cubic-bezier(0.23, 1, 0.32, 1),
-    opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  padding: 0 2px;
+  background: transparent;
+  border-radius: 0;
+  border-left: 2px solid transparent;
+  transition: all 160ms ease-in-out;
 }
 
-/* ── Hover: soft breathing, not snapping ───────── */
-child:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(217, 38, 62, 0.15),
-    transparent 85%
-  );
-  transform: translateX(4px) scale(1.02);
-  
-  /* Subtle glow effect */
-  box-shadow: 
-    inset 0 0 8px rgba(255, 31, 76, 0.2),
-    0 2px 12px rgba(217, 38, 62, 0.3);
-  
-  /* Smooth breathing animation */
-  animation: monarchBreath 2s ease-in-out infinite;
-}
-
-@keyframes monarchBreath {
-  0%, 100% {
-    transform: translateX(4px) scale(1.02);
-    box-shadow: 
-      inset 0 0 8px rgba(255, 31, 76, 0.2),
-      0 2px 12px rgba(217, 38, 62, 0.3);
-  }
-  50% {
-    transform: translateX(5px) scale(1.025);
-    box-shadow: 
-      inset 0 0 10px rgba(255, 31, 76, 0.25),
-      0 3px 15px rgba(217, 38, 62, 0.35);
-  }
-}
-
-/* ── Selected Item ─────────────────────────────── */
+child:hover .item-box,
 child:selected .item-box {
-  background: linear-gradient(
-    90deg,
-    rgba(217, 38, 62, 0.6),
-    transparent 90%
-  );
-
-  border-left: 5px solid @glow;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-
-  /* Controlled forward momentum */
-  transform: translateX(8px) scale(1.01);
-
-  /* Glow ramps in smoothly instead of popping */
-  box-shadow:
-    inset 0 0 12px rgba(255, 31, 76, 0.35),
-    0 0 18px rgba(255, 31, 76, 0.4);
+  background: linear-gradient(90deg, alpha(@glow, 0.25), alpha(@accent, 0.15) 100%);
+  border-left: 2px solid @glow;
+  transform: translateX(4px);
+  transition:
+    background 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-left 150ms ease;
 }
 
-/* ── Selected Text ─────────────────────────────── */
-child:selected .item-text {
-  color: #ffffff;
-  font-weight: 800;
-
-  /* Glow blooms softly */
-  text-shadow:
-    0 0 6px rgba(255, 31, 76, 0.6),
-    0 0 14px rgba(255, 31, 76, 0.8);
-
-  transition: text-shadow 260ms cubic-bezier(0.23, 1, 0.32, 1);
+child:selected .item-box {
+  animation: gradientSlideIn 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  background-size: 200% 100%;
 }
 
-/* ── Entrance Animation (Refined) ─────────────── */
-window .list child {
-  animation: slideInMonarch 420ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-@keyframes slideInMonarch {
+@keyframes gradientSlideIn {
   from {
-    transform: translateX(-16px) scale(0.985);
-    opacity: 0;
-    filter: blur(5px);
+    background-position: 0% 50%;
   }
   to {
-    transform: translateX(0) scale(1);
+    background-position: 100% 50%;
+  }
+}
+
+child:selected .item-text {
+  animation: textSlideIn 120ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes textSlideIn {
+  from {
+    text-shadow: 0 0 1px alpha(@accent, 0.1);
+  }
+  to {
+    text-shadow:
+      0 0 6px rgba(255, 31, 76, 0.6),
+      0 0 14px rgba(255, 31, 76, 0.8);
+  }
+}
+
+child,
+.item-box {
+  transition:
+    background 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-left 150ms ease,
+    transform 150ms ease;
+}
+
+window .list child {
+  animation: slideIn 180ms ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
     opacity: 1;
-    filter: blur(0);
   }
 }
