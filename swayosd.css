@@ -22,6 +22,8 @@ osd {
   border: 1px solid @border; /* Single sharp border */
   border-radius: 10px; /* Tighter rounding for minimal look */
   padding: 12px 20px; /* Compact spacing */
+  font-family: "JetBrains Mono", monospace; /* Clean typography */
+  font-size: 13px; /* Smaller, cleaner font */
 }
 
 image {
@@ -32,7 +34,6 @@ image {
 
 label {
   color: @fg;
-  font-size: 13px; /* Smaller, cleaner font */
   font-weight: 600;
   margin: 0;
 }

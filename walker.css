@@ -1,59 +1,127 @@
 /* ── Red Monarch: Ultra-Smooth System Aesthetic ── */
 
 @define-color text          #F0E0E6; /* Moonlit White */
-@define-color background    rgba(15, 5, 8, 0.9); /* 75% Opacity "Void" */
+@define-color background    rgba(15, 5, 8, 0.9); /* Void */
 @define-color border        #1A0F11; /* Reddish-Black Shadow */
 @define-color accent        #D9263E; /* Hair Red */
-@define-color glow          #FF1F4C; /* Sword Glow Red (Mana) */
+@define-color glow          #FF1F4C; /* Sword Glow Red */
 
+/* ── Window Container ───────────────────────────── */
 window .box-wrapper {
   background: @background;
   padding: 10px 6px;
   color: @text;
-  border-radius: 2px; /* Refined rounding */
+  border-radius: 2px;
   box-shadow: 0 0 25px rgba(15, 5, 8, 0.9);
+
+  /* Gentle fade-in for container presence */
+  animation: monarchFade 420ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* ── Smoother Dynamic Item Selection ── */
+@keyframes monarchFade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Base Item Motion ───────────────────────────── */
 child {
   padding: 6px 10px;
-  /* Updated to a smoother, slower quintic-bezier for fluid motion */
-  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Unified motion curve (feels “weighted”) */
+  transition:
+    background 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+/* ── Hover: soft breathing, not snapping ───────── */
+child:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(217, 38, 62, 0.15),
+    transparent 85%
+  );
+  transform: translateX(4px) scale(1.02);
+  
+  /* Subtle glow effect */
+  box-shadow: 
+    inset 0 0 8px rgba(255, 31, 76, 0.2),
+    0 2px 12px rgba(217, 38, 62, 0.3);
+  
+  /* Smooth breathing animation */
+  animation: monarchBreath 2s ease-in-out infinite;
+}
+
+@keyframes monarchBreath {
+  0%, 100% {
+    transform: translateX(4px) scale(1.02);
+    box-shadow: 
+      inset 0 0 8px rgba(255, 31, 76, 0.2),
+      0 2px 12px rgba(217, 38, 62, 0.3);
+  }
+  50% {
+    transform: translateX(5px) scale(1.025);
+    box-shadow: 
+      inset 0 0 10px rgba(255, 31, 76, 0.25),
+      0 3px 15px rgba(217, 38, 62, 0.35);
+  }
+}
+
+/* ── Selected Item ─────────────────────────────── */
 child:selected .item-box {
-  /* Selection gradient with a softer transition into transparency */
-  background: linear-gradient(90deg, rgba(217, 38, 62, 0.6), transparent 90%);
+  background: linear-gradient(
+    90deg,
+    rgba(217, 38, 62, 0.6),
+    transparent 90%
+  );
+
   border-left: 5px solid @glow;
   border-top: none;
   border-bottom: none;
   border-right: none;
 
-  /* Reduced distance (12px -> 8px) for a more controlled, elegant snap */
-  transform: translateX(8px);
+  /* Controlled forward momentum */
+  transform: translateX(8px) scale(1.01);
+
+  /* Glow ramps in smoothly instead of popping */
+  box-shadow:
+    inset 0 0 12px rgba(255, 31, 76, 0.35),
+    0 0 18px rgba(255, 31, 76, 0.4);
 }
 
+/* ── Selected Text ─────────────────────────────── */
 child:selected .item-text {
   color: #ffffff;
   font-weight: 800;
-  /* Deepened shadow for a more natural glow effect */
-  text-shadow: 0 0 15px rgba(255, 31, 76, 0.9);
+
+  /* Glow blooms softly */
+  text-shadow:
+    0 0 6px rgba(255, 31, 76, 0.6),
+    0 0 14px rgba(255, 31, 76, 0.8);
+
+  transition: text-shadow 260ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* ── Smoother Entrance Animation ── */
+/* ── Entrance Animation (Refined) ─────────────── */
 window .list child {
-  /* Staggered feel using a smoother ease-out-quart */
-  animation: slideInMonarch 350ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  animation: slideInMonarch 420ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 @keyframes slideInMonarch {
   from {
-    transform: translateX(-20px); /* Less jarring starting position */
+    transform: translateX(-16px) scale(0.985);
     opacity: 0;
-    filter: blur(5px); /* Added subtle blur during entrance for smoothness */
+    filter: blur(5px);
   }
   to {
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
     opacity: 1;
     filter: blur(0);
   }
