@@ -1,27 +1,33 @@
-/* ── Red Monarch: Ultra-Smooth System Aesthetic ── */
-
-@define-color text          #F0E0E6; /* Moonlit White */
-@define-color base          #3E161B; /* Abyss Red */
-@define-color border        #5E1C24; /* Dark Red */
-@define-color foreground    #F0E0E6; /* Moonlit White */
-@define-color background    rgba(15, 5, 8, 0.9); /* Void */
-@define-color hover         rgba(217, 38, 62, 0.15); /* Mid Red with opacity */
-@define-color accent        #D9263E; /* Hair Red */
-@define-color glow          #FF1F4C; /* Sword Glow Red */
+@define-color text #DADBDD;
+@define-color base #101216;
+@define-color border #D6152170;
+@define-color foreground #DADBDD;
+@define-color background #07080A;
+@define-color hover #22070C;
+@define-color accent #D61521;
+@define-color glow #F0222D;
 
 window .box-wrapper {
-  background: @background; /* same as Waybar and terminal */
+  background: alpha(@background, 0.99);
   padding: 8px 2px;
   color: @text;
   border: 1px solid @border;
+  box-shadow:
+    inset 0 1px 0 alpha(@text, 0.08),
+    0 10px 28px alpha(@glow, 0.16);
+  backdrop-filter: blur(8px);
+  border-radius: 0;
   margin: 0;
 }
 
 window .search-container,
 window .search {
-  background: transparent;
+  background: alpha(@background, 0.3);
   color: @foreground;
   border: 1px solid alpha(@border, 0.5);
+  box-shadow: inset 0 1px 0 alpha(@text, 0.05);
+  backdrop-filter: blur(6px);
+  border-radius: 0;
   padding: 8px 12px;
   margin: 4px 5px;
   font-size: 14px;
@@ -44,8 +50,14 @@ child {
 
 child:hover .item-box,
 child:selected .item-box {
-  background: linear-gradient(90deg, alpha(@glow, 0.25), alpha(@accent, 0.15) 100%);
-  border-left: 2px solid @glow;
+  background: linear-gradient(
+    90deg,
+    alpha(@glow, 0.38) 0%,
+    alpha(@accent, 0.24) 42%,
+    alpha(@accent, 0.08) 72%,
+    transparent 100%
+  );
+  border-left: 2px solid @accent;
   transform: translateX(4px);
   transition:
     background 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
@@ -53,37 +65,14 @@ child:selected .item-box {
     border-left 150ms ease;
 }
 
-child:selected .item-box {
-  animation: gradientSlideIn 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
-  background-size: 200% 100%;
-}
-
-@keyframes gradientSlideIn {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
-  }
-}
-
+child:hover .item-text,
 child:selected .item-text {
-  animation: textSlideIn 120ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-@keyframes textSlideIn {
-  from {
-    text-shadow: 0 0 1px alpha(@accent, 0.1);
-  }
-  to {
-    text-shadow:
-      0 0 6px rgba(255, 31, 76, 0.6),
-      0 0 14px rgba(255, 31, 76, 0.8);
-  }
+  text-shadow: none;
 }
 
 child,
 .item-box {
+  border-radius: 0;
   transition:
     background 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
     border-left 150ms ease,

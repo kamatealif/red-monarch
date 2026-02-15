@@ -1,10 +1,10 @@
 /* ── Minimalist Red Monarch OSD ── */
 
-@define-color bg        #0F0508; /* Deep red-black base */
-@define-color fg        #F0E0E6; /* Moonlit white text */
-@define-color border    #D9263E; /* Hair Red */
-@define-color progress1 #FF1F4C; /* Sword Glow Red */
-@define-color progress2 #BE2E3F; /* Vivid Red */
+@define-color bg        #07080A; /* Deep red-black base */
+@define-color fg        #DADBDD; /* Moonlit white text */
+@define-color border    #CF1622; /* Hair Red */
+@define-color progress1 #F0222D; /* Sword Glow Red */
+@define-color progress2 #B41924; /* Vivid Red */
 
 window {
   background-color: transparent;
@@ -21,6 +21,10 @@ osd {
   background-color: alpha(@bg, 0.85); /* Darker, less transparent for clarity */
   border: 1px solid @border; /* Single sharp border */
   border-radius: 10px; /* Tighter rounding for minimal look */
+  box-shadow:
+    inset 0 1px 0 alpha(@fg, 0.05),
+    0 8px 22px alpha(@progress1, 0.16);
+  backdrop-filter: blur(8px);
   padding: 12px 20px; /* Compact spacing */
   font-family: "JetBrains Mono", monospace; /* Clean typography */
   font-size: 13px; /* Smaller, cleaner font */
@@ -45,7 +49,7 @@ progressbar {
 
 progressbar > trough,
 progressbar trough {
-  background: rgba(62, 22, 27, 0.4); /* Subtle track */
+  background: rgba(45, 8, 14, 0.4); /* Subtle track */
   border-radius: 4px; /* Sharp corners for the progress track */
   min-height: 4px; /* Much thinner bar */
 }
@@ -53,6 +57,7 @@ progressbar trough {
 progressbar > trough > progress,
 progressbar progress {
   background: linear-gradient(90deg, @progress1, @progress2); /* Vibrant red */
+  box-shadow: 0 0 8px alpha(@progress1, 0.28);
   border-radius: 4px;
   min-height: 4px;
 }

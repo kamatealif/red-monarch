@@ -12,22 +12,22 @@ local M = {
 
         local colors = {
           panel  = "NONE",
-          fg     = "#F0E0E6",
-          border = "#5E1C24",
+          fg     = "#DADBDD",
+          border = "#55101A",
 
-          glow_red  = "#FF3D61",
-          hot_red   = "#FF1F4C",
-          mid_red   = "#D9263E",
-          deep_red  = "#7E222D",
-          dark_red  = "#5E1C24",
-          abyss_red = "#3E161B",
+          glow_red  = "#FF3039",
+          hot_red   = "#F0222D",
+          mid_red   = "#CF1622",
+          deep_red  = "#73121E",
+          dark_red  = "#55101A",
+          abyss_red = "#2D080E",
 
-          light_red = "#FF99A1",
-          blush_red = "#FF7A8C",
-          pale_red  = "#FFB8B7",
+          light_red = "#FF848D",
+          blush_red = "#FF636C",
+          pale_red  = "#FFA8A3",
 
-          subtle    = "#9E2836",
-          cursor    = "#FF1F4C",
+          subtle    = "#981723",
+          cursor    = "#F0222D",
 
           -- 🩸 Shaded selection (muted, not loud)
           selection = "#4A1A21",
