@@ -12,25 +12,25 @@ local M = {
 
         local colors = {
           panel  = "NONE",
-          fg     = "#DADBDD",
-          border = "#55101A",
+          fg     = "#7F7A7B",
+          border = "#44161C",
 
-          glow_red  = "#FF3039",
-          hot_red   = "#F0222D",
-          mid_red   = "#CF1622",
-          deep_red  = "#73121E",
-          dark_red  = "#55101A",
-          abyss_red = "#2D080E",
+          glow_red  = "#D81D43",
+          hot_red   = "#D51D42",
+          mid_red   = "#B91A3B",
+          deep_red  = "#4B111C",
+          dark_red  = "#44161C",
+          abyss_red = "#1F0D10",
 
-          light_red = "#FF848D",
-          blush_red = "#FF636C",
-          pale_red  = "#FFA8A3",
+          light_red = "#DA2045",
+          blush_red = "#DA2045",
+          pale_red  = "#7F7A7B",
 
-          subtle    = "#981723",
-          cursor    = "#F0222D",
+          subtle    = "#601523",
+          cursor    = "#D51D42",
 
           -- 🩸 Shaded selection (muted, not loud)
-          selection = "#4A1A21",
+          selection = "#33292C",
         }
 
         local function set(g, o)
@@ -80,10 +80,10 @@ local M = {
         set("Comment",    { fg = colors.subtle, italic = true })
         
         -- Dark red for specific elements only
-        set("Keyword",    { fg = "#F81F4B", bold = false })
-        set("Function",   { fg = "#F81F4B", bold = false })
-        set("Operator",   { fg = "#F81F4B" })
-        set("Delimiter",  { fg = "#F81F4B" })
+        set("Keyword",    { fg = "#DA2045", bold = false })
+        set("Function",   { fg = "#DA2045", bold = false })
+        set("Operator",   { fg = "#DA2045" })
+        set("Delimiter",  { fg = "#DA2045" })
         
         -- Everything else in subtle grays
         set("Constant",   { fg = colors.fg })

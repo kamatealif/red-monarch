@@ -6,37 +6,37 @@
     "alacritty": {
       "colors": {
         "bright": {
-          "black": "#22070C",
-          "blue": "#FF636C",
-          "cyan": "#FFA8A3",
-          "green": "#FF3039",
-          "magenta": "#FF848D",
-          "red": "#F0222D",
-          "white": "#FFFFFF",
-          "yellow": "#FF4B54"
+          "black": "#160A0D",
+          "blue": "#DA2045",
+          "cyan": "#7F7A7B",
+          "green": "#D81D43",
+          "magenta": "#DA2045",
+          "red": "#D51D42",
+          "white": "#7F7A7B",
+          "yellow": "#DA2045"
         },
         "cursor": {
-          "text": "#07080A",
-          "cursor": "#F0222D"
+          "text": "#10090B",
+          "cursor": "#D51D42"
         },
         "normal": {
-          "black": "#101216",
-          "blue": "#981723",
-          "cyan": "#E11A26",
-          "green": "#55101A",
-          "magenta": "#B41924",
-          "red": "#2D080E",
-          "white": "#DADBDD",
-          "yellow": "#73121E"
+          "black": "#120B0D",
+          "blue": "#601523",
+          "cyan": "#C31B3D",
+          "green": "#44161C",
+          "magenta": "#8D162F",
+          "red": "#1F0D10",
+          "white": "#7F7A7B",
+          "yellow": "#4B111C"
         },
         "primary": {
-          "background": "#07080A",
-          "dim_foreground": "#3B0A12",
-          "foreground": "#DADBDD"
+          "background": "#10090B",
+          "dim_foreground": "#291217",
+          "foreground": "#7F7A7B"
         },
         "selection": {
-          "background": "#55101A",
-          "text": "#FFFFFF"
+          "background": "#44161C",
+          "text": "#7F7A7B"
         }
       },
       "font": {
@@ -48,39 +48,39 @@
       }
     },
     "btop": {
-      "available_end": "#73121E",
-      "available_mid": "#CF1622",
-      "available_start": "#FF3039",
-      "cached_end": "#2D080E",
-      "cached_mid": "#981723",
-      "cached_start": "#FF636C",
+      "available_end": "#4B111C",
+      "available_mid": "#B91A3B",
+      "available_start": "#D81D43",
+      "cached_end": "#1F0D10",
+      "cached_mid": "#601523",
+      "cached_start": "#DA2045",
       "colors": {
         "basic": {
-          "hi_fg": "#F0222D",
-          "selected_bg": "#2D080E"
+          "hi_fg": "#D51D42",
+          "selected_bg": "#1F0D10"
         },
-        "cpu": { "cpu_mid": "#B41924" },
+        "cpu": { "cpu_mid": "#8D162F" },
         "memory": {
-          "available_mid": "#B41924",
-          "cached_mid": "#B41924",
-          "free_mid": "#B41924",
-          "used_mid": "#B41924"
+          "available_mid": "#8D162F",
+          "cached_mid": "#8D162F",
+          "free_mid": "#8D162F",
+          "used_mid": "#8D162F"
         },
-        "temperature": { "temp_mid": "#B41924" }
+        "temperature": { "temp_mid": "#8D162F" }
       },
-      "cpu_box": "#55101A",
-      "cpu_start": "#F0222D",
-      "div_line": "#2D080E",
-      "hi_fg": "#F0222D",
-      "main_fg": "#DADBDD",
-      "selected_bg": "#2D080E",
-      "selected_fg": "#FFFFFF",
-      "title": "#CF1622"
+      "cpu_box": "#44161C",
+      "cpu_start": "#D51D42",
+      "div_line": "#1F0D10",
+      "hi_fg": "#D51D42",
+      "main_fg": "#7F7A7B",
+      "selected_bg": "#1F0D10",
+      "selected_fg": "#7F7A7B",
+      "title": "#B91A3B"
     },
     "hyprland": {
       "general": {
-        "active_border": "rgba(D9263EAA) rgba(5E1C2466) 90deg",
-        "inactive_border": "rgba(1A0F1199)",
+        "active_border": "rgba(B91A3BAA) rgba(4B111C66) 90deg",
+        "inactive_border": "rgba(120B0D99)",
         "border_size": 3,
         "gaps_in": 2,
         "gaps_out": 4
@@ -91,56 +91,56 @@
         "inactive_opacity": 0.92,
         "shadow": {
           "enabled": true,
-          "color": "rgba(FF1F4C66)",
-          "color_inactive": "rgba(0F050866)",
+          "color": "rgba(D51D4266)",
+          "color_inactive": "rgba(10090B66)",
           "range": 25
         }
       },
       "group": {
-        "col_border_active": "rgba(BE2E3F88)",
-        "col_border_inactive": "rgba(1A0F1188)"
+        "col_border_active": "rgba(B91A3B88)",
+        "col_border_inactive": "rgba(120B0D88)"
       }
     },
     "mako": {
-      "background_color": "#07080ACC",
-      "border_color": "#CF1622AA",
-      "text_color": "#DADBDD",
-      "progress_color": "#B4192488",
+      "background_color": "#10090BCC",
+      "border_color": "#B91A3BAA",
+      "text_color": "#7F7A7B",
+      "progress_color": "#8D162F88",
       "border_size": 2,
       "font": "JetBrainsMono Nerd Font 11"
     },
     "walker": {
-      "background": "rgba(7, 8, 10, 0.75)",
-      "border": "#2D080E",
-      "input_color": "#F0222D",
-      "selected_bg": "linear-gradient(90deg, rgba(214, 21, 33, 0.25), transparent)",
-      "text_color": "#DADBDD"
+      "background": "rgba(16, 9, 11, 0.75)",
+      "border": "#1F0D10",
+      "input_color": "#D51D42",
+      "selected_bg": "linear-gradient(90deg, rgba(185, 26, 59, 0.25), transparent)",
+      "text_color": "#7F7A7B"
     },
     "waybar": {
-      "background": "rgba(7, 8, 10, 0.75)",
-      "border_bottom": "#CF1622",
+      "background": "rgba(16, 9, 11, 0.75)",
+      "border_bottom": "#B91A3B",
       "modules": {
-        "clock": "#F0222D",
-        "cpu": "#B41924",
-        "memory": "#981723",
-        "workspaces_active": "#F0222D"
+        "clock": "#D51D42",
+        "cpu": "#8D162F",
+        "memory": "#601523",
+        "workspaces_active": "#D51D42"
       }
     }
   },
   "colors": {
     "primary": {
-      "background": "#07080A",
-      "foreground": "#DADBDD",
-      "accent": "#CF1622",
-      "glow": "#F0222D"
+      "background": "#10090B",
+      "foreground": "#7F7A7B",
+      "accent": "#B91A3B",
+      "glow": "#D51D42"
     },
     "terminal": {
-      "red": "#F0222D",
-      "green": "#FF3039",
-      "yellow": "#CF1622",
-      "blue": "#981723",
-      "magenta": "#B41924",
-      "cyan": "#E11A26"
+      "red": "#D51D42",
+      "green": "#D81D43",
+      "yellow": "#B91A3B",
+      "blue": "#601523",
+      "magenta": "#8D162F",
+      "cyan": "#C31B3D"
     }
   }
 }

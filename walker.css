@@ -1,14 +1,14 @@
-@define-color text #DADBDD;
-@define-color base #101216;
-@define-color border #D6152170;
-@define-color foreground #DADBDD;
-@define-color background #07080A;
-@define-color hover #22070C;
-@define-color accent #D61521;
-@define-color glow #F0222D;
+@define-color text #7F7A7B;
+@define-color base #120B0D;
+@define-color border #B91A3B70;
+@define-color foreground #7F7A7B;
+@define-color background #10090B;
+@define-color hover #160A0D;
+@define-color accent #B91A3B;
+@define-color glow #D51D42;
 
 window .box-wrapper {
-  background: alpha(@background, 0.99);
+  background: alpha(@background, 0.95);
   padding: 8px 2px;
   color: @text;
   border: 1px solid @border;
