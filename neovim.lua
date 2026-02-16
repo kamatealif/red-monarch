@@ -3,8 +3,11 @@ return {
     "kamatealif/monarch.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd("colorscheme monarch")
-    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "monarch",
+    },
   },
 }
