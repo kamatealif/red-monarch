@@ -2,7 +2,7 @@
 @define-color foreground #EDEDED; /* Moonlit White */
 @define-color background rgba(16, 9, 11, 0.75); /* Deep Red-Black with 75% opacity */
 @define-color accent     #BF1111; /* Hair Red */
-@define-color glow       #BF1111; /* Sword Glow Red */
+@define-color glow       #8A1A1A; /* Secondary muted red glow */
 
 #waybar {
   background: @background;
@@ -10,7 +10,7 @@
   border-bottom: 1px solid alpha(@accent, 0.45);
   box-shadow:
     inset 0 1px 0 alpha(@foreground, 0.05),
-    0 6px 18px alpha(@glow, 0.12);
+    0 6px 18px alpha(@glow, 0.06);
 }
 
 #workspaces button.active,
@@ -19,5 +19,5 @@
 #network,
 #pulseaudio,
 #battery {
-  text-shadow: 0 0 6px alpha(@glow, 0.28);
+  text-shadow: 0 0 6px alpha(@glow, 0.14);
 }

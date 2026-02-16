@@ -23,14 +23,14 @@ theme[selected_fg]="#EDEDED"
 theme[inactive_fg]="#291217"
 
 # Misc colors for processes box including mini cpu graphs
-theme[proc_misc]="#BF1111"
+theme[proc_misc]="#8A1A1A"
 
 # Box outline and divider line color
-theme[cpu_box]="#BF1111"
-theme[mem_box]="#BF1111"
-theme[net_box]="#BF1111"
-theme[proc_box]="#BF1111"
-theme[div_line]="#BF1111"
+theme[cpu_box]="#32292C"
+theme[mem_box]="#32292C"
+theme[net_box]="#32292C"
+theme[proc_box]="#32292C"
+theme[div_line]="#8A1A1A"
 
 # Gradients for all meters and graphs (Going from Glow-Red to Deep-Red)
 theme[temp_start]="#BF1111"

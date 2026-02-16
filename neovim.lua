@@ -17,16 +17,16 @@ local M = {
 
           glow_red  = "#BF1111",
           hot_red   = "#BF1111",
-          mid_red   = "#BF1111",
-          deep_red  = "#BF1111",
-          dark_red  = "#BF1111",
-          abyss_red = "#BF1111",
+          mid_red   = "#8A1A1A",
+          deep_red  = "#8A1A1A",
+          dark_red  = "#8A1A1A",
+          abyss_red = "#8A1A1A",
 
           light_red = "#BF1111",
           blush_red = "#BF1111",
           pale_red  = "#EDEDED",
 
-          subtle    = "#BF1111",
+          subtle    = "#7A6F73",
           cursor    = "#BF1111",
 
           -- 🩸 Shaded selection (muted, not loud)
@@ -55,13 +55,13 @@ local M = {
         -- Floats / menus
         set("NormalFloat",  vim.tbl_extend("force", { fg = colors.fg }, P))
         set("FloatBorder",  { fg = colors.border, bg = colors.panel })
-        set("Pmenu",        vim.tbl_extend("force", { fg = colors.fg }, { bg = colors.abyss_red }))
+        set("Pmenu",        vim.tbl_extend("force", { fg = colors.fg }, { bg = colors.selection }))
         set("PmenuSel",     { fg = colors.panel, bg = colors.hot_red, bold = true })
         set("PmenuSbar",    { bg = colors.subtle })
         set("PmenuThumb",   { bg = colors.mid_red })
 
         -- Statusline / tabs
-        set("StatusLine",   vim.tbl_extend("force", { fg = colors.fg }, { bg = colors.abyss_red }))
+        set("StatusLine",   vim.tbl_extend("force", { fg = colors.fg }, { bg = colors.selection }))
         set("StatusLineNC", vim.tbl_extend("force", { fg = colors.subtle }, P))
         set("TabLine",      vim.tbl_extend("force", { fg = colors.subtle }, P))
         set("TabLineFill",  P)
@@ -163,7 +163,7 @@ local M = {
           set("Normal",       { fg = colors.fg, bg = colors.panel })
           set("NormalNC",     { fg = colors.fg, bg = colors.panel })
           set("NormalFloat",  { fg = colors.fg, bg = colors.panel })
-          set("StatusLine",   { fg = colors.fg, bg = colors.panel })
+          set("StatusLine",   { fg = colors.fg, bg = colors.selection })
           set("TabLine",      { fg = colors.subtle, bg = colors.panel })
           set("AlphaNormal",  { fg = colors.fg, bg = colors.panel })
         end
