@@ -33,7 +33,3 @@ Set in your Omarchy config:
 ```
 
 nvim theme: [monarch.nvim](https://github.com/kamatealif/monarch.nvim.git)
-
-## License
-
-See LICENSE file for details.
